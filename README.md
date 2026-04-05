@@ -1,6 +1,8 @@
-# Sneklang (Learning Project)
+# Sneklang 
 
-In this project I'm explore how to build tiny object system from scratch. We implement a few basic object types, build a list of objects, and experiment with a manual reference counting garbage‑collection style of memory management.
+Sneklang is tiny object system written in c from scratch. We implement a few basic object types, build a list of objects, and experiment with a manual reference counting garbage‑collection style of memory management.
+
+> _this is a experimental project built to learn more about c and memory management in low level languages. this probably has no use in real world._
 
 **Objects**
 - `INTEGER`: stores an `int`. Supports `snek_add` with integers/floats and has length `1`.
@@ -29,3 +31,5 @@ We compile and run using `clang` for this project.
 clang -std=c11 -Wall -Wextra -O2 -o program main.c snekobject.c
 ./program
 ```
+
+this project follows [this](https://youtu.be/rJrd2QMVbGM?si=mXrX5F8XFzLK8ooO) c tutorial from bootdev.
