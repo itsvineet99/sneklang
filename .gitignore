@@ -1,0 +1,46 @@
+# Build artifacts
+*.o
+*.obj
+*.a
+*.lib
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# Debug / profiling
+*.dSYM/
+*.dSYM
+*.pdb
+*.prof
+*.gprof
+*.profraw
+*.gcda
+*.gcno
+*.gcov
+
+# Dependency files
+*.d
+
+# Editor / OS noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# CMake / build dirs
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+build/
+bin/
+dist/
+
+# Tests / coverage output
+coverage/
+*.lcov
