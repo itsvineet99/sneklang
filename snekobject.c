@@ -4,6 +4,9 @@
 
 #include "snekobject.h"
 
+// forward declaration 
+snek_object_t *_new_snek_object();
+
 void refcount_free(snek_object_t *obj);
 
 void refcount_dec(snek_object_t *obj) {
@@ -49,14 +52,6 @@ void refcount_free(snek_object_t *obj) {
 void refcount_inc(snek_object_t *obj) {
     if (obj == NULL) {return;}
     obj->refcount++;
-}
-
-snek_object_t *_new_snek_object() {
-    snek_object_t *obj = malloc(sizeof(snek_object_t));
-    if (obj == NULL) {return NULL;}
-
-    obj->refcount = 1;
-    return obj;
 }
 
 snek_object_t *snek_add(snek_object_t *a, snek_object_t *b) {
@@ -197,14 +192,16 @@ snek_object_t *new_snek_string(char *value) {
     snek_object_t *obj = _new_snek_object();
     if (obj == NULL) {return NULL;}
 
-    obj->kind = STRING;
-    obj->data.v_string = malloc(strlen(value) + 1);
-    if (obj->data.v_string == NULL) {
+    char *dst = malloc(strlen(value) + 1);
+    if (dst == NULL) {
         free(obj);
         return NULL;
     }
-    strcpy(obj->data.v_string, value);
 
+    strcpy(dst, value);
+
+    obj->kind = STRING;
+    obj->data.v_string = dst;
     return obj;
 }
 
@@ -225,5 +222,13 @@ snek_object_t *new_snek_integer(int value) {
     obj->kind = INTEGER;
     obj->data.v_int = value;
 
+    return obj;
+}
+
+snek_object_t *_new_snek_object() {
+    snek_object_t *obj = malloc(sizeof(snek_object_t));
+    if (obj == NULL) {return NULL;}
+
+    obj->refcount = 1;
     return obj;
 }

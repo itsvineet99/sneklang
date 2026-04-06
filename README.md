@@ -4,6 +4,8 @@ Sneklang is tiny object system written in c from scratch. We implement a few bas
 
 > _this is a experimental project built to learn more about c and memory management in low level languages. this probably has no use in real world._
 
+to learn more about project you can also read notes.md.
+
 **Objects**
 - `INTEGER`: stores an `int`. Supports `snek_add` with integers/floats and has length `1`.
 - `FLOAT`: stores a `float`. Supports `snek_add` with integers/floats and has length `1`.
